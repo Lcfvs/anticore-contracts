@@ -71,21 +71,23 @@ function tagCurrent (url, current, candidate) {
   return true
 }
 
-on('main', function (element, next, loaded, url) {
-  if (loaded && one('h1', element)) {
-    register(element, url)
-    window.history.pushState(null, updateTitle(element), url)
-    replace(element, one('main'))
-  }
+export default function mainMono () {
+  on('main', function (element, next, loaded, url) {
+    if (loaded && one('h1', element)) {
+      register(element, url)
+      window.history.pushState(null, updateTitle(element), url)
+      replace(element, one('main'))
+    }
 
-  const current = url && one('body nav a.current')
-  const anchors = current && all('a', closest('ol, ul', current))
+    const current = url && one('body nav a.current')
+    const anchors = current && all('a', closest('ol, ul', current))
 
-  if (anchors) {
-    every(anchors, curry(tagCurrent, cleanHref(url), current))
-  }
+    if (anchors) {
+      every(anchors, curry(tagCurrent, cleanHref(url), current))
+    }
 
-  next()
-})
+    next()
+  })
 
-listen()
+  listen()
+}
