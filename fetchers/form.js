@@ -1,5 +1,5 @@
 import { on, fetch } from 'anticore'
-import fromForm from 'anticore-apis/Request/fromForm'
+import fromForm from 'anticore-core/apis/Request/fromForm'
 import empty from 'anticore-core/Object/empty'
 import onSubmit from 'anticore-dom/emitter/onSubmit'
 import all from 'anticore-dom/query/all'

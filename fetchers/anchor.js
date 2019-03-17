@@ -1,5 +1,5 @@
 import { on, fetch } from 'anticore'
-import fromAnchor from 'anticore-apis/Request/fromAnchor'
+import fromAnchor from 'anticore-core/apis/Request/fromAnchor'
 import empty from 'anticore-core/Object/empty'
 import onClick from 'anticore-dom/emitter/onClick'
 
