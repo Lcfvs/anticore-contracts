@@ -1,16 +1,19 @@
 import { on } from 'anticore'
-import URL from 'anticore-apis/URL'
-import toString from 'anticore-apis/URL/toString'
+import URL from 'anticore-core/apis/URL'
+import toString from 'anticore-core/apis/URL/toString'
 import every from 'anticore-core/Array/every'
 import curry from 'anticore-core/Function/curry'
 import global from 'anticore-core/global'
 import empty from 'anticore-core/Object/empty'
 import replace from 'anticore-core/String/replace'
+import trim from 'anticore-core/String/trim'
+import contains from 'anticore-dom/info/contains'
 import document from 'anticore-dom/node/document'
 import all from 'anticore-dom/query/all'
 import closest from 'anticore-dom/query/closest'
 import one from 'anticore-dom/query/one'
 import text from 'anticore-dom/tree/text'
+import toggle from 'anticore-dom/tree/replace'
 
 const window = global()
 const history = empty()
@@ -25,7 +28,7 @@ function cleanHref (href) {
 }
 
 function getTitle (element) {
-  return text(one('h1', element)).trim()
+  return trim(text(one('h1', element)))
 }
 
 function updateTitle (element) {
@@ -71,23 +74,21 @@ function tagCurrent (url, current, candidate) {
   return true
 }
 
-export default function mainMono () {
-  on('main', function (element, next, loaded, url) {
-    if (loaded && one('h1', element)) {
-      register(element, url)
-      window.history.pushState(null, updateTitle(element), url)
-      replace(element, one('main'))
-    }
+on('main', (element, next, url) => {
+  if (!contains(document(), element) && one('h1', element)) {
+    register(element, url)
+    window.history.pushState(null, updateTitle(element), url)
+    toggle(element, one('main'))
+  }
 
-    const current = url && one('body nav a.current')
-    const anchors = current && all('a', closest('ol, ul', current))
+  const current = url && one('body nav a.current')
+  const anchors = current && all('a', closest('ol, ul', current))
 
-    if (anchors) {
-      every(anchors, curry(tagCurrent, cleanHref(url), current))
-    }
+  if (anchors) {
+    every(anchors, curry(tagCurrent, cleanHref(url), current))
+  }
 
-    next()
-  })
+  next()
+})
 
-  listen()
-}
+listen()

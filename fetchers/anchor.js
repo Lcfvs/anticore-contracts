@@ -20,10 +20,7 @@ export default function anchor (options) {
   const config = empty(defaults, options || defaults)
 
   function build (event) {
-    const element = this
-    const request = fromAnchor(element, event)
-
-    fetch(element, request, config.interval, config.retries)
+    fetch(event, this, fromAnchor(this), config)
   }
 
   on(config.selector, (element, next) => {

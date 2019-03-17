@@ -18,11 +18,8 @@ export default function anchor (options) {
   const config = empty(defaults, options || defaults)
 
   function build (event) {
-    const element = this
-    const request = fromForm(element, event)
-
-    removeAll(all('.error', element))
-    fetch(element, request, config.interval, config.retries)
+    removeAll(all('.error', this))
+    fetch(event, this, fromForm(this), config)
   }
 
   on(config.selector, (element, next) => {
