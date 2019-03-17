@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Lcfvs/anticore-contracts#readme",
   "dependencies": {
-    "anticore": "^3.0.0-beta-005",
+    "anticore": "^3.0.0-beta-006",
     "anticore-apis": "0.0.19",
     "anticore-core": "0.0.15",
     "anticore-dom": "0.0.6"
