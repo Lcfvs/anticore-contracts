@@ -1,9 +1,9 @@
-import { on, fetch } from 'anticore'
-import fromForm from 'anticore-core/apis/Request/fromForm'
-import empty from 'anticore-core/Object/empty'
-import onSubmit from 'anticore-dom/emitter/onSubmit'
-import all from 'anticore-dom/query/all'
-import removeAll from 'anticore-dom/tree/removeAll'
+import { on, fetch } from 'anticore/index.js'
+import fromForm from 'anticore-core/apis/Request/fromForm.js'
+import empty from 'anticore-core/Object/empty.js'
+import onSubmit from 'anticore-dom/emitter/onSubmit.js'
+import all from 'anticore-dom/query/all.js'
+import removeAll from 'anticore-dom/tree/removeAll.js'
 
 const defaults = empty({
   interval: 1000,

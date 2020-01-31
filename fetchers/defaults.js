@@ -1,5 +1,5 @@
-import anchor from './anchor'
-import form from './form'
+import anchor from './anchor.js'
+import form from './form.js'
 
 anchor()
 form()

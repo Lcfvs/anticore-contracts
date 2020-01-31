@@ -3,5 +3,5 @@
 ## Usage
 
 ```js
-import 'anticore-contracts/main/mono'
+import 'anticore-contracts/main/mono.js'
 ```

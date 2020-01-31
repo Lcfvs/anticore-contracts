@@ -1,7 +1,7 @@
-import { on, fetch } from 'anticore'
-import fromAnchor from 'anticore-core/apis/Request/fromAnchor'
-import empty from 'anticore-core/Object/empty'
-import onClick from 'anticore-dom/emitter/onClick'
+import { on, fetch } from 'anticore/index.js'
+import fromAnchor from 'anticore-core/apis/Request/fromAnchor.js'
+import empty from 'anticore-core/Object/empty.js'
+import onClick from 'anticore-dom/emitter/onClick.js'
 
 const defaults = empty({
   interval: 1000,
