@@ -1,6 +1,6 @@
 {
   "name": "anticore-contracts",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A module to pick the common anticore contracts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Lcfvs/anticore-contracts#readme",
   "dependencies": {
-    "anticore": "^3.2.0",
+    "anticore": "^3.2.1",
     "anticore-core": "^1.0.2",
     "anticore-dom": "^1.0.5"
   }
