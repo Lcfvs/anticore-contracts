@@ -1,6 +1,6 @@
 {
   "name": "anticore-contracts",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A module to pick the common anticore contracts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

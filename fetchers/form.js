@@ -7,6 +7,7 @@ import removeAll from 'anticore-dom/tree/removeAll.js'
 
 const defaults = empty({
   interval: 1000,
+  redirect: 'follow',
   retries: Infinity,
   selector: `
 form:not([target]),
@@ -16,10 +17,11 @@ form[target=_self]
 
 export default function anchor (options) {
   const config = empty(defaults, options || defaults)
+  const { redirect } = config
 
   function build (event) {
     removeAll(all('.error', this))
-    fetch(event, this, fromForm(this), config)
+    fetch(event, this, fromForm(this, { redirect }), config)
   }
 
   on(config.selector, (element, next) => {
@@ -29,5 +31,6 @@ export default function anchor (options) {
 }
 
 export const interval = defaults.interval
+export const redirect = defaults.redirect
 export const retries = defaults.retries
 export const selector = defaults.selector
